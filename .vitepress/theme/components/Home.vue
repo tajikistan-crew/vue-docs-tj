@@ -14,18 +14,16 @@ onMounted(async () => {
 <template>
   <section id="hero">
     <h1 class="tagline">
-      The
-      <span class="accent">Progressive</span>
-      <br />JavaScript Framework
+      <br />JavaScript Фреймворки
+      <span class="accent">Мутараққи</span>
     </h1>
     <p class="description">
-      An approachable, performant and versatile framework for building web
-      user interfaces.
+      Фреймворки дастрас, пурмахсул ва ҳаматарафа барои веб интерфейси корбар.
     </p>
     <p class="actions">
       <VueMasteryModal />
       <a class="get-started" href="/guide/introduction.html">
-        Get Started
+        Оғоз
         <svg
           class="icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +36,7 @@ onMounted(async () => {
           />
         </svg>
       </a>
-      <a class="setup" href="/guide/quick-start.html">Install</a>
+      <a class="setup" href="/guide/quick-start.html">Насб кардан</a>
     </p>
   </section>
 
@@ -67,24 +65,23 @@ onMounted(async () => {
 
   <section id="highlights" class="vt-box-container">
     <div class="vt-box">
-      <h2>Approachable</h2>
+      <h2>Дастрас</h2>
       <p>
-        Builds on top of standard HTML, CSS and JavaScript with intuitive
-        API and world-class documentation.
+        Дар тори стандарт
+        Дар HTML, CSS ва Jsvascript стандартӣ сохта шудааст бо API'и интуитивй ҳуҷҷатгузорӣ сатҳи ҷаҳони.
       </p>
     </div>
     <div class="vt-box">
-      <h2>Performant</h2>
+      <h2>Пурмахсул</h2>
       <p>
-        Truly reactive, compiler-optimized rendering system that rarely
-        requires manual optimization.
+        Воқеан реактивӣ, системаи рендеринг бо компилятор оптимизатсияшуда, ки хеле кам оптимизатсияи дастӣ талаб мекунад.
       </p>
     </div>
     <div class="vt-box">
-      <h2>Versatile</h2>
+      <h2>Ҳаматарафа</h2>
       <p>
-        A rich, incrementally adoptable ecosystem that scales between a
-        library and a full-featured framework.
+        Экосистемаи бой ва тадриҷан қабулшаванда, ки миқёси байни
+        библиотека ва Фреймворки мукаммал.
       </p>
     </div>
   </section>
