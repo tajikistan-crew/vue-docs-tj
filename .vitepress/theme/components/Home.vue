@@ -6,13 +6,12 @@ import { load, data, base } from './sponsors'
 import SponsorsGroup from './SponsorsGroup.vue'
 import VueMasteryModal from './VueMasteryModal.vue'
 
-onMounted(async () => {
-  await load()
-})
+onMounted(load)
 </script>
 
 <template>
   <section id="hero">
+    <img id="uwu" alt="Vue.js Kawaii Logo by @icarusgkx" />
     <h1 class="tagline">
       <br />JavaScript Фреймворки
       <span class="accent">Мутараққи</span>
@@ -304,6 +303,25 @@ html:not(.dark) .accent,
 @media (max-width: 370px) {
   .tagline {
     font-size: 36px;
+  }
+}
+
+#uwu {
+  display: none;
+}
+
+.uwu #uwu {
+  display: block;
+  width: 100%;
+  max-width: 720px;
+  margin: -120px auto -20px;
+  aspect-ratio: 192 / 108;
+  content: url(/logo-uwu.png);
+}
+
+@media (max-width: 576px) {
+  .uwu #uwu {
+    margin: -60px auto -10px;
   }
 }
 </style>

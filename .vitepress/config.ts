@@ -49,7 +49,7 @@ const nav: ThemeConfig['nav'] = [
           { text: 'UI Components', link: 'https://ui-libs.vercel.app/' },
           {
             text: 'Certification',
-            link: 'https://certification.vuejs.org/?ref=vuejs-nav'
+            link: 'https://certificates.dev/vuejs/?ref=vuejs-nav'
           },
           { text: 'Jobs', link: 'https://vuejobs.com/?ref=vuejs' },
           { text: 'T-Shirt Shop', link: 'https://vue.threadless.com/' }
@@ -113,6 +113,7 @@ const nav: ThemeConfig['nav'] = [
         link: '/about/community-guide'
       },
       { text: 'Code of Conduct', link: '/about/coc' },
+      { text: 'Privacy Policy', link: '/about/privacy' },
       {
         text: 'The Documentary',
         link: 'https://www.youtube.com/watch?v=OrxmtDw4pVI'
@@ -606,6 +607,14 @@ export default defineConfigWithTheme<ThemeConfig>({
     ],
     [
       'script',
+      {},
+      fs.readFileSync(
+        path.resolve(__dirname, './inlined-scripts/uwu.js'),
+        'utf-8'
+      )
+    ],
+    [
+      'script',
       {
         src: 'https://cdn.usefathom.com/script.js',
         'data-site': 'XNOLWPLB',
@@ -670,6 +679,26 @@ export default defineConfigWithTheme<ThemeConfig>({
         repo: 'https://github.com/vuejs-translations/docs-it'
       },
       {
+        link: 'https://fa.vuejs.org',
+        text: 'فارسی',
+        repo: 'https://github.com/vuejs-translations/docs-fa'
+      },
+      {
+        link: 'https://ru.vuejs.org',
+        text: 'Русский',
+        repo: 'https://github.com/translation-gang/docs-ru'
+      },
+      {
+        link: 'https://cs.vuejs.org',
+        text: 'Čeština',
+        repo: 'https://github.com/vuejs-translations/docs-cs'
+      },
+      {
+        link: 'https://zh-hk.vuejs.org',
+        text: '繁體中文',
+        repo: 'https://github.com/vuejs-translations/docs-zh-hk'
+      },
+      {
         link: '/translations/',
         text: 'Help Us Translate!',
         isTranslationsDesc: true
@@ -679,7 +708,7 @@ export default defineConfigWithTheme<ThemeConfig>({
     algolia: {
       indexName: 'vuejs',
       appId: 'ML0LEBN7FQ',
-      apiKey: 'f49cbd92a74532cc55cfbffa5e5a7d01',
+      apiKey: '21cf9df0734770a2448a9da64a700c22',
       searchParameters: {
         facetFilters: ['version:v3']
       }
@@ -693,7 +722,7 @@ export default defineConfigWithTheme<ThemeConfig>({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/' },
       { icon: 'twitter', link: 'https://twitter.com/vuejs' },
-      { icon: 'discord', link: 'https://discord.com/invite/HBherRA' }
+      { icon: 'discord', link: 'https://discord.com/invite/vue' }
     ],
 
     editLink: {

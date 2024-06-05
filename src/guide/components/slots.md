@@ -296,6 +296,35 @@ function BaseLayout(slots) {
 }
 ```
 
+## Conditional Slots {#conditional-slots}
+
+Sometimes you want to render something based on whether or not a slot is present. 
+
+You can use the [$slots](/api/component-instance.html#slots) property in combination with a [v-if](/guide/essentials/conditional.html#v-if) to achieve this.
+
+In the example below we define a Card component with three conditional slots: `header`, `footer` and the `default` one.
+When the header / footer / default is present we want to wrap them to provide additional styling:
+
+```vue-html
+<template>
+  <div class="card">
+    <div v-if="$slots.header" class="card-header">
+      <slot name="header" />
+    </div>
+    
+    <div v-if="$slots.default" class="card-content">
+      <slot />
+    </div>
+    
+    <div v-if="$slots.footer" class="card-footer">
+      <slot name="footer" />
+    </div>
+  </div>
+</template>
+```
+
+[Try it in the Playground](https://play.vuejs.org/#eNqVVMtu2zAQ/BWCLZBLIjVoTq4aoA1yaA9t0eaoCy2tJcYUSZCUKyPwv2dJioplOw4C+EDuzM4+ONYT/aZ1tumBLmhhK8O1IxZcr29LyTutjCN3zNRkZVRHLrLcXzz9opRFHvnIxIuDTgvmAG+EFJ4WTnhOCPnQAqvBjHFE2uvbh5Zbgj/XAolwkWN4TM33VI/UalixXvjyo5yeqVVKOpCuyP0ob6utlHL7vUE3U4twkWP4hJq/jiPP4vSSOouNrHiTPVolcclPnl3SSnWaCzC/teNK2pIuSEA8xoRQ/3+GmDM9XKZ41UK1PhF/tIOPlfSPAQtmAyWdMMdMAy7C9/9+wYDnCexU3QtknwH/glWi9z1G2vde1tj2Hi90+yNYhcvmwd4PuHabhvKNeuYu8EuK1rk7M/pLu5+zm5BXyh1uMdnOu3S+95pvSCWYtV9xQcgqaXogj2yu+AqBj1YoZ7NosJLOEq5S9OXtPZtI1gFSppx8engUHs+vVhq9eVhq9ORRrXdpRyseSqfo6SmmnONK6XTw9yis24q448wXSG+0VAb3sSDXeiBoDV6TpWDV+ktENatrdMGCfAoBfL1JYNzzpINJjVFoJ9yKUKho19ul6OFQ6UYPx1rjIpPYeXIc/vXCgjetawzbni0dPnhhJ3T3DMVSruI=)
+
 ## Dynamic Slot Names {#dynamic-slot-names}
 
 [Dynamic directive arguments](/guide/essentials/template-syntax.md#dynamic-arguments) also work on `v-slot`, allowing the definition of dynamic slot names:
@@ -415,33 +444,37 @@ Note the `name` of a slot won't be included in the props because it is reserved 
 If you are mixing named slots with the default scoped slot, you need to use an explicit `<template>` tag for the default slot. Attempting to place the `v-slot` directive directly on the component will result in a compilation error. This is to avoid any ambiguity about the scope of the props of the default slot. For example:
 
 ```vue-html
+<!-- <MyComponent> template -->
+<div>
+  <slot :message="hello"></slot>
+  <slot name="footer" />
+</div>
+```
+
+```vue-html
 <!-- This template won't compile -->
-<template>
-  <MyComponent v-slot="{ message }">
+<MyComponent v-slot="{ message }">
+  <p>{{ message }}</p>
+  <template #footer>
+    <!-- message belongs to the default slot, and is not available here -->
     <p>{{ message }}</p>
-    <template #footer>
-      <!-- message belongs to the default slot, and is not available here -->
-      <p>{{ message }}</p>
-    </template>
-  </MyComponent>
-</template>
+  </template>
+</MyComponent>
 ```
 
 Using an explicit `<template>` tag for the default slot helps to make it clear that the `message` prop is not available inside the other slot:
 
 ```vue-html
-<template>
-  <MyComponent>
-    <!-- Use explicit default slot -->
-    <template #default="{ message }">
-      <p>{{ message }}</p>
-    </template>
+<MyComponent>
+  <!-- Use explicit default slot -->
+  <template #default="{ message }">
+    <p>{{ message }}</p>
+  </template>
 
-    <template #footer>
-      <p>Here's some contact info</p>
-    </template>
-  </MyComponent>
-</template>
+  <template #footer>
+    <p>Here's some contact info</p>
+  </template>
+</MyComponent>
 ```
 
 ### Fancy List Example {#fancy-list-example}

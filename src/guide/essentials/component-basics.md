@@ -298,7 +298,7 @@ Then want to render a component for each one, using `v-for`:
 
 </div>
 
-Notice how `v-bind` is used to pass dynamic prop values. This is especially useful when you don't know the exact content you're going to render ahead of time.
+Notice how [`v-bind` syntax](/api/built-in-directives#v-bind) (`:title="post.title"`) is used to pass dynamic prop values. This is especially useful when you don't know the exact content you're going to render ahead of time.
 
 That's all you need to know about props for now, but once you've finished reading this page and feel comfortable with its content, we recommend coming back later to read the full guide on [Props](/guide/components/props).
 
@@ -469,6 +469,7 @@ Something bad happened.
 This can be achieved using Vue's custom `<slot>` element:
 
 ```vue{4}
+<!-- AlertBox.vue -->
 <template>
   <div class="alert-box">
     <strong>This is an Error for Demo Purposes</strong>
